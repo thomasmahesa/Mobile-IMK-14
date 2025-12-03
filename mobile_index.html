@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Saya - Teknisi Lapangan</title>
+    <link rel="stylesheet" href="mobile_style.css">
+</head>
+<body>
+    <header class="mobile-header">
+        <div class="header-title">Tugas Aktif Saya</div>
+        <a href="mobile_new_request.html" class="add-button">+</a>
+    </header>
+
+    <main class="mobile-main">
+        <section class="task-filter">
+            <select>
+                <option>Filter Status: Semua Tugas</option>
+                <option>Prioritas Tinggi</option>
+                <option>Sedang Dikerjakan</option>
+            </select>
+        </section>
+
+        <section class="task-list">
+            <div class="task-card high-p" onclick="window.location.href='mobile_detail.html?id=REQ001'">
+                <h3>REQ001: AC Sentral Lantai 3</h3>
+                <p><strong>Lokasi:</strong> Gudang A</p>
+                <div class="status-badge">Menunggu Penanganan</div>
+                <small>Prioritas Tinggi</small>
+            </div>
+
+            <div class="task-card low-p" onclick="window.location.href='mobile_detail.html?id=REQ002'">
+                <h3>REQ002: Server Rack 1 Maintenance</h3>
+                <p><strong>Lokasi:</strong> Data Center</p>
+                <div class="status-badge">Sedang Dikerjakan</div>
+                <small>Prioritas Rendah</small>
+            </div>
+
+            <div class="task-card" onclick="window.location.href='mobile_detail.html?id=REQ003'">
+                <h3>REQ003: Lampu Koridor Mati</h3>
+                <p><strong>Lokasi:</strong> Koridor Utama Lt. 1</p>
+                <div class="status-badge">Disetujui</div>
+                <small>Prioritas Normal</small>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="mobile_index.html" class="nav-item active">Tugas</a>
+        <a href="#" class="nav-item">Profil</a>
+    </nav>
+</body>
+</html>

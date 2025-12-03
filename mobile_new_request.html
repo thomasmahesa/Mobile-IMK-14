@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Baru</title>
+    <link rel="stylesheet" href="mobile_style.css">
+</head>
+<body>
+    <header class="mobile-header detail-header">
+        <a href="mobile_index.html" class="back-button">←</a>
+        <div class="header-title">Pengajuan Request Baru</div>
+    </header>
+
+    <main class="mobile-main">
+        <section class="new-request-form">
+            <h3>Laporan Kerusakan Baru</h3>
+            
+            <label for="equipment">Nama Peralatan:</label>
+            <input type="text" id="equipment" placeholder="AC, Generator, Komputer, dll.">
+
+            <label for="location">Lokasi:</label>
+            <input type="text" id="location" placeholder="Gudang A, Lantai 3, dll.">
+            
+            <label for="priority">Prioritas:</label>
+            <select id="priority">
+                <option>Normal</option>
+                <option>Tinggi</option>
+                <option>Rendah</option>
+            </select>
+            
+            <label for="problem">Deskripsi Masalah:</label>
+            <textarea id="problem" rows="4" placeholder="Jelaskan detail masalah yang ditemukan..."></textarea>
+            
+            <label for="image">Unggah Foto (Wajib):</label>
+            <input type="file" id="image" accept="image/*" required>
+            
+            <button class="submit-button primary" onclick="alert('Request baru berhasil diajukan (Statis)!')">Kirim Request</button>
+        </section>
+    </main>
+</body>
+</html>

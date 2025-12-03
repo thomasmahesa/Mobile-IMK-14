@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Tugas</title>
+    <link rel="stylesheet" href="mobile_style.css">
+    <style>
+        /* CSS untuk menyembunyikan semua detail secara default */
+        .request-data-detail { display: none; } 
+    </style>
+</head>
+<body>
+    <header class="mobile-header detail-header">
+        <a href="mobile_index.html" class="back-button">←</a>
+        <div id="header-title" class="header-title">Detail Tugas</div>
+    </header>
+
+    <main class="mobile-main">
+        
+        <div id="detail-REQ001" class="request-data-detail">
+            <section class="task-details">
+                <h2>AC Sentral Lantai 3</h2>
+                <p class="priority-status high-p">Prioritas Tinggi</p>
+                <p><strong>Lokasi:</strong> Gudang A</p>
+                <p><strong>Diajukan:</strong> 03 Des 2025</p>
+                <p><strong>Status:</strong> Menunggu Penanganan</p>
+                
+                <div class="detail-box">
+                    <h4>Deskripsi Masalah</h4>
+                    <p>AC tidak dingin, terdengar bunyi berisik dari unit luar. Harap segera dicek dan diperbaiki.</p>
+                    <button class="attachment-button">Lihat Lampiran/Foto (1)</button>
+                </div>
+            </section>
+        </div>
+
+        <div id="detail-REQ002" class="request-data-detail">
+            <section class="task-details">
+                <h2>Server Rack 1 Maintenance</h2>
+                <p class="priority-status low-p">Prioritas Rendah</p>
+                <p><strong>Lokasi:</strong> Data Center</p>
+                <p><strong>Diajukan:</strong> 01 Des 2025</p>
+                <p><strong>Status:</strong> Sedang Dikerjakan</p>
+                
+                <div class="detail-box">
+                    <h4>Deskripsi Masalah</h4>
+                    <p>Pengecekan rutin suhu dan kondisi kabel server rack 1. Tidak ada kerusakan, hanya maintenance berkala.</p>
+                    <button class="attachment-button">Lihat Riwayat Tugas (0)</button>
+                </div>
+            </section>
+        </div>
+        
+        <div id="detail-REQ003" class="request-data-detail">
+            <section class="task-details">
+                <h2>Lampu Koridor Mati</h2>
+                <p class="priority-status">Prioritas Normal</p>
+                <p><strong>Lokasi:</strong> Koridor Utama Lt. 1, dekat Lift B</p>
+                <p><strong>Diajukan:</strong> 29 Nov 2025</p>
+                <p><strong>Status:</strong> Disetujui</p>
+                
+                <div class="detail-box">
+                    <h4>Deskripsi Masalah</h4>
+                    <p>Dua lampu neon koridor utama mati. Perlu diganti segera untuk penerangan.</p>
+                    <button class="attachment-button">Lihat Lampiran/Foto (1)</button>
+                </div>
+            </section>
+        </div>
+        
+        <hr>
+
+        <section class="update-form">
+            <h3>Update Status & Laporan (Kolom Isi)</h3>
+            <label for="new-status">Ubah Status Tugas:</label>
+            <select id="new-status">
+                <option>Sedang Dikerjakan</option>
+                <option>Butuh Suku Cadang</option>
+                <option>Selesai</option>
+            </select>
+            
+            <label for="notes">Catatan Teknisi:</label>
+            <textarea id="notes" rows="4" placeholder="Tuliskan langkah perbaikan yang dilakukan..."></textarea>
+            
+            <label for="photo-upload">Unggah Bukti Foto (Opsional):</label>
+            <input type="file" id="photo-upload" accept="image/*">
+            
+            <button class="submit-button" onclick="alert('Status tugas berhasil diperbarui (Statis)!')">Simpan Update</button>
+        </section>
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Ambil ID dari URL (?id=REQ00X)
+            const urlParams = new URLSearchParams(window.location.search);
+            const reqId = urlParams.get('id'); 
+            
+            // Tentukan ID yang akan ditampilkan
+            const finalReqId = reqId || 'REQ001'; // Default ke REQ001 jika tidak ada ID
+
+            // 2. Update Judul Header
+            document.getElementById('header-title').textContent = 'Detail ' + finalReqId;
+
+            // 3. Sembunyikan semua blok detail
+            document.querySelectorAll('.request-data-detail').forEach(detail => {
+                detail.style.display = 'none';
+            });
+            
+            // 4. Tampilkan blok detail yang sesuai
+            const specificDetail = document.getElementById('detail-' + finalReqId);
+            if (specificDetail) {
+                specificDetail.style.display = 'block';
+            } else {
+                // Tampilkan pesan error jika ID tidak ditemukan
+                document.querySelector('.mobile-main').innerHTML = `
+                    <div style="padding: 20px; text-align: center;">
+                        <h2>Kesalahan</h2>
+                        <p>Detail tugas dengan ID ${finalReqId} tidak ditemukan.</p>
+                        <a href="mobile_index.html" style="color: var(--primary-color);">Kembali ke Daftar Tugas</a>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

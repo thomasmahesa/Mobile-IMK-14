@@ -1,0 +1,221 @@
+/* Styling Dasar untuk Mobile */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #f8f9fa;
+    --high-priority: #dc3545;
+    --low-priority: #17a2b8;
+    --success-color: #28a745;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding-bottom: 60px; /* Ruang untuk bottom-nav */
+    background-color: #f4f7f6;
+}
+
+/* Header */
+.mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.add-button, .back-button {
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Main Content */
+.mobile-main {
+    padding: 15px;
+}
+
+/* Bottom Navigation (Kunci di bawah, Thumb Zone) */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    height: 60px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #6c757d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    padding: 5px;
+    flex: 1;
+}
+
+.nav-item.active {
+    color: var(--primary-color);
+    border-top: 2px solid var(--primary-color);
+}
+
+/* Task Card List */
+.task-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #ccc;
+    cursor: pointer;
+}
+
+.task-card h3 {
+    margin: 0 0 5px;
+    font-size: 1.1em;
+}
+
+.task-card p {
+    margin: 0 0 5px;
+    font-size: 0.9em;
+}
+
+.task-card.high-p { border-left-color: var(--high-priority); }
+.task-card.low-p { border-left-color: var(--low-priority); }
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+/* Form Input Styling (untuk detail & new request) */
+.task-details h2, .update-form h3, .new-request-form h3 {
+    margin-top: 0;
+}
+
+.detail-box {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 15px 0;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+input[type="text"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+.attachment-button {
+    background-color: var(--low-priority);
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* ========================================= */
+/* EFEK SIMULASI MOBILE UNTUK LAYAR DESKTOP */
+/* ========================================= */
+
+/* Container Utama */
+.mobile-container {
+    /* Seting default agar di mobile, container mengambil lebar penuh */
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: white; /* Atur latar belakang container menjadi putih */
+}
+
+/* Media Query: Terapkan Pembatasan Lebar saat Layar Browser Besar (Desktop) */
+@media (min-width: 600px) {
+    .mobile-container {
+        /* Membatasi Lebar Maksimum untuk simulasi layar HP */
+        max-width: 400px; 
+        
+        /* Memberi Bingkai/Shadow */
+        border: 1px solid #ccc; 
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+        
+        /* Memosisikan di tengah layar desktop */
+        margin-top: 20px;
+        margin-bottom: 20px;
+        
+        /* Mengubah tinggi agar simulasi HP terlihat lebih panjang */
+        height: calc(100vh - 40px); 
+        
+        /* Memastikan konten di dalamnya bisa discroll */
+        overflow-y: auto; 
+    }
+    
+    /* Atur Body/Latar Belakang Web di luar container */
+    body {
+        background-color: #e9ecef; /* Warna latar belakang di luar bingkai HP */
+    }
+}
+
+/* Penyesuaian agar fixed header/footer tetap di dalam container */
+@media (min-width: 600px) {
+    .bottom-nav {
+        /* Menggeser bottom-nav ke tengah container */
+        left: auto;
+        right: auto;
+        /* Kunci lebarnya sesuai lebar container */
+        width: 400px; 
+        bottom: 20px; /* Jarak dari bawah bingkai */
+        border-radius: 0 0 12px 12px;
+    }
+
+    .mobile-header {
+        width: 400px;
+        position: absolute; /* Ubah ke absolute atau fixed untuk terkunci di atas container */
+        top: 20px;
+        border-radius: 12px 12px 0 0;
+    }
+}

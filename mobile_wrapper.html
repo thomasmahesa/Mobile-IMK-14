@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link 2: Aplikasi Mobile Teknisi</title>
+    <link rel="stylesheet" href="mobile_style.css"> 
+    <style>
+        body {
+            background-color: #e9ecef; /* Latar belakang web */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .mobile-frame {
+            width: 375px; /* Lebar standar layar mobile (iPhone SE/8/X) */
+            height: 800px; /* Tinggi tampilan */
+            border: 10px solid #333; /* Bingkai luar simulasi handphone */
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden; /* Penting agar konten iframe tidak keluar */
+            background-color: white;
+        }
+
+        .mobile-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .mobile-title {
+            position: absolute;
+            top: 50px;
+            font-size: 1.5em;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-frame">
+        <iframe src="mobile_index.html" title="Aplikasi Mobile Teknisi Lapangan"></iframe>
+    </div>
+    </body>
+</html>
